@@ -22,6 +22,8 @@ const UsersComponent = ()=> {
         getAllPostsByUserId(id).then(posts => setPosts([...posts]))
     }
 
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' }); //чисто впадло було крутити кожен раз вниз
+
 
 
     return (
@@ -37,7 +39,7 @@ const UsersComponent = ()=> {
                     ))
                 }
             </div>
-
+            <hr/>
             <div>
                 <PostsComponent posts={posts}/>
             </div>
