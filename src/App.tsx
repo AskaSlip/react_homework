@@ -1,9 +1,8 @@
-import React, {useEffect,  useRef, useState} from 'react';
+import React, { useState} from 'react';
 import './App.css';
 import {useToggle} from "./hooks/useToggle";
 import {useToggleValue} from "./hooks/useToggleValue";
-
-
+import {usePrevious} from "./hooks/usePrevious";
 
 
 function App() {
@@ -11,7 +10,8 @@ function App() {
     const [status, dispatch, toggle] = useToggle();
     const [toggledValue, toggled] = useToggleValue();
 
-
+    const [text, setText] = useState<string>('');
+    const previousText = usePrevious(text);
 
 
     return (
@@ -39,6 +39,16 @@ function App() {
                 </button>
             </div>
 
+            <div>
+                <h3>current text - {text}</h3>
+                <h3>previous text - {previousText}</h3>
+                <button onClick={() => {
+                    setText(text + 'meow:3 ')
+                    console.log(previousText);
+                }}>
+                    kitten push
+                </button>
+            </div>
 
 
         </div>
