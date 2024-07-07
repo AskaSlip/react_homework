@@ -7,7 +7,6 @@ import styles from './FormComponent.module.css'
 import {IPost} from "../modals/IPost";
 import {createPost,getAllPosts} from "../services/api.services";
 import PostComponent from "./postComponent";
-import NewPostComponent from "./newPostComponent";
 
 const FormComponent = () => {
 
@@ -19,11 +18,10 @@ const FormComponent = () => {
         resolver: joiResolver(userValidator)
     });
 
-    const [newPost, setNewPost] = useState<IPost | null>(null)
-    
+
     let formPostCreator =  async (data: IForm) => {
         const response = await createPost(data);
-        setNewPost(response);
+        setPosts([...posts,response])
     }
 
 
@@ -52,7 +50,6 @@ const FormComponent = () => {
             </form>
             <div>
                 <PostComponent posts={posts}/>
-                {newPost && <NewPostComponent newPost={newPost}/>}
             </div>
 
         </div>
