@@ -1,10 +1,13 @@
-import React, {FormEvent, useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import {useForm} from "react-hook-form";
 import {IForm} from "../modals/IForm";
 import {joiResolver} from "@hookform/resolvers/joi";
 import userValidator from "../validators/userValidator";
-import {baseUrl} from "../constants/urls";
 import styles from './FormComponent.module.css'
+import {IPost} from "../modals/IPost";
+import {createPost,getAllPosts} from "../services/api.services";
+import PostComponent from "./postComponent";
+import NewPostComponent from "./newPostComponent";
 
 const FormComponent = () => {
 
@@ -16,24 +19,19 @@ const FormComponent = () => {
         resolver: joiResolver(userValidator)
     });
 
-    let formPostCreator = (data: IForm) => {
-        // console.log(data);
+    const [newPost, setNewPost] = useState<IPost | null>(null)
+    
+    let formPostCreator =  async (data: IForm) => {
+        const response = await createPost(data);
+        setNewPost(response);
+    }
 
-            const response =  fetch(baseUrl, {
-                method: 'POST',
-                body: JSON.stringify({
-                    title: data.title,
-                    body: data.body,
-                    userId: data.userId,
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-                .then((response) => response.json())
-                .then((json) => console.log(json));
-    };
 
+    const [posts, setPosts] = useState<IPost[]>([])
+
+    useEffect(() => {
+        getAllPosts().then(posts => setPosts([...posts]))
+    }, []);
 
 
     return (
@@ -45,14 +43,17 @@ const FormComponent = () => {
                 <label htmlFor="userId">User ID: </label>
                 <input type="number" id='userId' {...register('userId')} className={styles.input}/>
                 <label htmlFor="title">Title: </label>
-                <input type="text" id='title'{...register('title')}className={styles.input}/>
+                <input type="text" id='title'{...register('title')} className={styles.input}/>
                 <label htmlFor="body">Post text: </label>
-                <input type="text" id='body' {...register('body')}className={styles.input}/>
+                <input type="text" id='body' {...register('body')} className={styles.input}/>
 
                 <button disabled={!isValid} className={styles.btn}>Create post</button>
 
             </form>
-
+            <div>
+                <PostComponent posts={posts}/>
+                {newPost && <NewPostComponent newPost={newPost}/>}
+            </div>
 
         </div>
     );
