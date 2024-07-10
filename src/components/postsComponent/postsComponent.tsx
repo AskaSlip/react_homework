@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {IPost} from "../../models/IPost";
 import {getAllPosts} from "../../services/api.services";
 import PostComponent from "../postComponent/postComponent";
+import styles from './postsComponent.module.css'
 
 const PostsComponent = () => {
 
@@ -15,7 +16,7 @@ const PostsComponent = () => {
     },[])
 
     return (
-        <div>
+        <div className={styles.wrapper}>
             {posts.map((post: IPost) => (
                 <PostComponent
                     key={post.id}

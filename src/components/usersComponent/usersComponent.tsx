@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {IUser} from "../../models/IUser";
 import {getAllUsers} from "../../services/api.services";
 import UserComponent from "../userComponent/userComponent";
+import styles from './usersComponent.module.css'
 
 const UsersComponent = () => {
 
@@ -13,7 +14,7 @@ const UsersComponent = () => {
     },[])
     
     return (
-        <div>
+        <div className={styles.usersWrap}>
             {users.map((user: IUser) => (
                 <UserComponent
                     key={user.id}

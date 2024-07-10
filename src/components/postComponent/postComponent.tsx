@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {IPost} from "../../models/IPost";
+import styles from './postComponent.module.css'
 
 interface IProp{
     post: IPost;
@@ -7,7 +8,7 @@ interface IProp{
 
 const PostComponent:FC<IProp> = ({post}) => {
     return (
-        <div>
+        <div className={styles.post}>
             {post.id}: {post.userId}  {post.title}: {post.body}
         </div>
     );
