@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
-import {ITodo} from "../models/ITodo";
-import {useAppLocation} from "../hooks/useAppLocation";
+import {ITodo} from "./ITodo";
+import {useAppLocation} from "../../hooks/useAppLocation";
 
 const TodoPage = () => {
 

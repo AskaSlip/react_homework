@@ -1,7 +1,8 @@
-import React from 'react';
-import ErrorComponent from "../components/ErrorComponent";
+import React, {FC} from 'react';
+import ErrorComponent from "../components/ErrorComponent/ErrorComponent";
 
-const ErrorLayout = () => {
+
+const ErrorLayout:FC = () => {
     return (
         <div>
             <ErrorComponent/>

@@ -3,5 +3,8 @@ export const urls = {
     usersUrl: '/users',
     postsUrl: '/posts',
     commentsUrl: '/comments',
-    skipPart: '?skip='
+    skipPart: '&skip=',
+    usersLimit: '?limit=20',
+    postsLimit: '?limit=25',
+    commentsLimit: '?limit=40'
 }

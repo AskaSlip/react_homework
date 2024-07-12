@@ -1,0 +1,14 @@
+.wrap {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.btn {
+    font-size: 20px;
+    width: 100px;
+    background-color: #360122;
+    color: silver;
+    border-radius: 10px;
+}

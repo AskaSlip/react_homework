@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
+import HomeComponent from "../components/HomeComponent/HomeComponent";
 
-const HomePage = () => {
+const HomePage: FC = () => {
     return (
         <div>
-            home
+            <HomeComponent/>
         </div>
     );
 };

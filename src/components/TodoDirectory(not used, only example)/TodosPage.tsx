@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {ITodo} from "../models/ITodo";
-import TodosComponent from "../components/TodoComponent/TodosComponent";
+import {ITodo} from "./ITodo";
+import TodosComponent from "./TodoComponent/TodosComponent";
 import {Outlet, useSearchParams} from "react-router-dom";
-import PaginationComponent from "../components/PaginationComponent";
+import PaginationComponent from "../PaginationComponent/PaginationComponent";
 
 const TodosPage = () => {
 
