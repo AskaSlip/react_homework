@@ -23,7 +23,7 @@ const CommentsPage = () => {
             getAllComments().then(comments => setComments([...comments]))
         }
 
-    });
+    }, [page]);
 
     return (
         <div className={styles.usersDiv}>

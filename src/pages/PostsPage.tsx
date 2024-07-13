@@ -24,7 +24,7 @@ const PostsPage = () => {
             getAllPosts().then((posts) => setPosts([...posts]))
         }
 
-    });
+    },[page]);
 
 
     return (

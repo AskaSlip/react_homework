@@ -23,7 +23,7 @@ if (page){
     }else {
         getAllUsers().then((users: IUser[]) => setUsers([...users]))
 }
-    })
+    }, [page])
 
 
 

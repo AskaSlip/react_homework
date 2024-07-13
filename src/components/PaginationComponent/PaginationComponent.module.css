@@ -12,3 +12,7 @@
     color: silver;
     border-radius: 10px;
 }
+
+.btn:disabled {
+    color: #360122;
+}
