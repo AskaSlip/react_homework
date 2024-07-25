@@ -23,10 +23,10 @@ let router = createBrowserRouter([
             {index: true, element: <HomePage/>},
             {path: 'users', element: <UsersPage/>},
             {path: 'posts', element: <PostsPage/>},
-            {path: 'comments', element: <CommentsPage/>}
-            // {path: 'todos', element: <TodosPage/>, children: [
-            //         {path: ':id', element: <TodoPage/>}
-            //     ]},
+            {path: 'comments', element: <CommentsPage/>},
+            {path: 'todos', element: <TodosPage/>, children: [
+                    {path: ':id', element: <TodoPage/>}
+                ]},
 
         ]}
 ])

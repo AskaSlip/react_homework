@@ -10,7 +10,7 @@ const MainComponent = () => {
                 <span><Link to={'users'} className={styles.links}>users page</Link></span>
                 <span><Link to={'posts'} className={styles.links}>posts page</Link></span>
                 <span><Link to={'comments'} className={styles.links}>comments page</Link></span>
-                {/*<span><Link to={'todos'} className={styles.links}>todos page</Link></span>*/}
+                <span><Link to={'todos'} className={styles.links}>todos page</Link></span>
         </div>
     );
 };

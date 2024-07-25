@@ -10,7 +10,7 @@ const TodoPage = () => {
     let state = location.state
 
     const [user, setUser] = useState<any>()
-    
+
     useEffect(() => {
         fetch('https://dummyjson.com/users/' + state.userId)
             .then(value => value.json())
