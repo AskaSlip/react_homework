@@ -6,6 +6,7 @@ import MainLayout from "./layouts/MainLayout";
 import AuthPage from "./pages/AuthPage";
 import RegPage from "./pages/RegPage";
 import CarsPage from "./pages/CarsPage";
+import NewCarPage from "./pages/NewCarPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -25,6 +26,9 @@ let router = createBrowserRouter([
             },
             {
                 path: '/cars', element: <CarsPage/>
+            },
+            {
+                path: '/createCar', element: <NewCarPage/>
             }
         ]
 

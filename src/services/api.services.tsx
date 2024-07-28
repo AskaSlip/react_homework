@@ -37,6 +37,7 @@ const authService = {
     authUser: async (data: TokenObtainPairModel): Promise<void> => {
         let response = await axiosInstance.post<TokenRefreshModel>('/auth', data)
         localStorage.setItem('tokenPair', JSON.stringify(response.data))
+
     }
 }
 
@@ -47,8 +48,11 @@ const carService = {
         let data = response.data
         console.log(data);
         return data
+    },
 
-
+    createCar: async (data: CarWithAuthModel): Promise<CarWithAuthModel> => {
+        let response = await axiosInstance.post<CarWithAuthModel>('/cars', data)
+        return response.data
     }
 }
 
