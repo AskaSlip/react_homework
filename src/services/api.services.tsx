@@ -3,10 +3,24 @@ import {UserModel} from "../models/UserModel";
 import {UserResponseModel} from "../models/UserResponseModel";
 import {TokenObtainPairModel} from "../models/TokenObtainPairModel";
 import {TokenRefreshModel} from "../models/TokenRefreshModel";
+import {retriveLocalStorageData} from "../helpers/helpers";
+import {CarPaginatedModel} from "../models/CarPaginatedModel";
+import {CarWithAuthModel} from "../models/CarWithAuthModel";
 
 const axiosInstance = axios.create({
     baseURL: 'http://owu.linkpc.net/carsAPI/v2'
 
+})
+
+axiosInstance.interceptors.request.use(requestObject => {
+
+
+    if (localStorage.getItem('tokenPair') && requestObject.url !== '/auth'){
+        requestObject.headers.set('Authorization', "Bearer " + retriveLocalStorageData<TokenRefreshModel>('tokenPair').access)
+    }
+    console.log(requestObject);
+
+    return requestObject;
 })
 
 
@@ -22,13 +36,23 @@ const userService = {
 const authService = {
     authUser: async (data: TokenObtainPairModel): Promise<void> => {
         let response = await axiosInstance.post<TokenRefreshModel>('/auth', data)
-        console.log(response);
-        console.log(response.data.access);
-        console.log(response.data.refresh);
+        localStorage.setItem('tokenPair', JSON.stringify(response.data))
+    }
+}
+
+const carService = {
+    getCars: async (): Promise <CarPaginatedModel> => {
+        let response = await axiosInstance.get<CarPaginatedModel>('/cars')
+
+        let data = response.data
+        console.log(data);
+        return data
+
+
     }
 }
 
 
 export {
-    userService, authService
+    userService, authService, carService
 }

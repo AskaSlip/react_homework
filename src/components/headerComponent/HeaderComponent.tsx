@@ -7,6 +7,7 @@ const HeaderComponent = () => {
             <ul>
                 <li><NavLink to={'/'}>auth page</NavLink></li>
                 <li><NavLink to={'registration'}>registration page</NavLink></li>
+                <li><NavLink to={'cars'}>Cars page</NavLink></li>
 
             </ul>
         </div>
