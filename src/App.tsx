@@ -26,7 +26,7 @@ function App() {
   const [globalCounter, setGlobalCounter] = useState<number>(0)
 
   return (
-    <>
+    <div>
 
       <MyContext.Provider value={{
 
@@ -44,7 +44,7 @@ function App() {
 
 
 
-    </>
+    </div>
   );
 }
 
