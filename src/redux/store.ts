@@ -1,6 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {useDispatch, useSelector} from "react-redux";
-import {postSlice} from "../slices/postSlice";
+import {postSlice} from "./slices/postSlice";
 
 export let store = configureStore({
     reducer: {

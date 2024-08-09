@@ -1,6 +1,6 @@
 import {createSlice, isFulfilled} from "@reduxjs/toolkit";
-import {IPost} from "../models/IPost";
-import {loadPosts} from "../redux/redusers/posts/posts.extraReducers";
+import {IPost} from "../../models/IPost";
+import {loadPosts} from "../redusers/posts/posts.extraReducers";
 
 type postSliceType = {
     posts: IPost[],

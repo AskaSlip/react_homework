@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {useAppDispatch, useAppSelector} from "./redux/store";
-import {postsActions} from "./slices/postSlice";
+import {postsActions} from "./redux/slices/postSlice";
 
 const App = () => {
 
